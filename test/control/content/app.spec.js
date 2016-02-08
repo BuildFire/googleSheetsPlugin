@@ -65,7 +65,7 @@ describe('Unit: googleAppsSheetsPluginContent content app', function () {
       });
 
       it('it should pass if ContentHome.validateUrl is called with error', function () {
-        ContentHome.googleSheetUrl = 'https://docs.google.com/a/tothenew.com/spreadsheets/d/1uEuK3C1oQ5pMJ62Z1jZ4ew1zfRsS3My3-Ek76MQDq1o/htmlview#gid=0';
+        ContentHome.googleSheetUrl = 'https://docs.google.com/spreadsheets/d/1DRVGSGJh5s1w2giLbizZW6t6OT1Ea-YIewzX9D4meJ4/edit?pref=2&pli=1#gid=0';
         ContentHome.validateUrl();
         ContentHome.valiadte(ContentHome.googleSheetUrl)
       });

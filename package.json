@@ -1,7 +1,7 @@
 {
-  "name": "youCanBookMePlugin",
+  "name": "googleAppsSheetsPlugin",
   "version": "1.0.0",
-  "description": "A plugin that provides integration with youcanbook.me to allow users to book time with you.",
+  "description": "A plugin that provides integration with google Apps sheets to allow users to view the googe spreadsheet.",
   "main": "index.js",
   "scripts": {
     "postinstall": "./node_modules/.bin/bower install",
