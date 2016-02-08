@@ -35,9 +35,16 @@
       ContentHome.init();
 
 
+        ContentHome.valiadte= function (url) {
+          var regExp = /^https?:\/\/.+\/spreadsheets\/.+/;
+          return regExp.test(url);
+        }
+
       ContentHome.validateUrl = function () {
+        console.log("aaaaaaaaaaaaaaaa",ContentHome.valiadte(ContentHome.googleSheetUrl))
         //  var result =
-        if (ContentHome.googleSheetUrl.match("https://docs.google.com/spreadsheets")) {
+     //    if (ContentHome.googleSheetUrl.match("https://docs.google.com/spreadsheets")) {
+        if (ContentHome.valiadte(ContentHome.googleSheetUrl)) {
             ContentHome.isUrlValidated = true;
             ContentHome.data.content.url = ContentHome.googleSheetUrl;
             ContentHome.saveData(JSON.parse(angular.toJson(ContentHome.data)), TAG_NAMES.GOOGLE_APPS_SHEETS_DATA);
