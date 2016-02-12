@@ -57,7 +57,7 @@ describe('Unit: googleAppsSheetsPluginWidget app', function () {
     });
     describe('It will test the defined methods', function () {
 
-      it('it should pass if WidgetHome.init is called for error', function () {
+      it('it should pass if WidgetHome.init is called', function () {
         var result= {};
         WidgetHome.init();
     //    WidgetHome.success()
@@ -72,10 +72,13 @@ describe('Unit: googleAppsSheetsPluginWidget app', function () {
           tag:TAG_NAMES.GOOGLE_APPS_SHEETS_DATA
         }
         WidgetHome.data= {
-          design:""
+          design:"",
+          content:{
+            url:""
+          }
         }
               WidgetHome.onUpdateCallback(event)
-        WidgetHome.success({data:{content:{}}});
+        WidgetHome.success({data:{content:{url:""}}});
       });
 
     });
