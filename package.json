@@ -1,5 +1,5 @@
 {
-  "name": "googleAppsSheetsPlugin",
+  "name": "googleSheetsPlugin",
   "version": "1.0.0",
   "description": "A plugin that provides integration with google Apps sheets to allow users to view the googe spreadsheet.",
   "main": "index.js",
