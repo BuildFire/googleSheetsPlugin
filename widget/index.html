@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="content"
-     style="-webkit-overflow-scrolling: touch !important;height: 100%;"
+     style="-webkit-overflow-scrolling: touch !important;overflow: auto;height: 100%;"
      ng-controller="WidgetHomeCtrl as WidgetHome">
   <iframe ng-src="{{WidgetHome.data.content.url | returnUrl}}"
           ng-if="WidgetHome.data.content.url"
