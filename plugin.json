@@ -1,6 +1,6 @@
 {
   "author": "BuildFire",
-  "pluginName": "googleAppsSheetPlugin",
+  "pluginName": "googleSheetsPlugin",
   "pluginDescription": "Plugin to open a Google Apps sheet url in your buildfire app.",
   "supportEmail": "support@buildfire.com",
   "control": {
