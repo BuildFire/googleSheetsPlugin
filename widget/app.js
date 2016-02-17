@@ -5,7 +5,7 @@
     .controller('WidgetHomeCtrl', ['$scope', 'Buildfire', 'DataStore', 'TAG_NAMES', 'STATUS_CODE',
       function ($scope, Buildfire, DataStore, TAG_NAMES, STATUS_CODE) {
         var WidgetHome = this;
-
+        buildfire.datastore.disableRefresh();
         /*
          * Fetch user's data from datastore
          */
