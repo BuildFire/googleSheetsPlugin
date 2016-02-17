@@ -12,8 +12,12 @@
         WidgetHome.init = function () {
           WidgetHome.success = function (result) {
               WidgetHome.data = result.data;
-            if(WidgetHome.data && WidgetHome.data.content && WidgetHome.data.content.url)
-            WidgetHome.data.content.url = WidgetHome.data.content.url.replace("/edit", "/htmlview");
+            if(WidgetHome.data && WidgetHome.data.content && WidgetHome.data.content.url) {
+              if (WidgetHome.data.content.mode == 'EDITABLE')
+                WidgetHome.data.content.url = WidgetHome.data.content.url.replace("/htmlview", "/edit");
+              else
+                WidgetHome.data.content.url = WidgetHome.data.content.url.replace("/edit", "/htmlview");
+            }
             if (!WidgetHome.data.content)
                 WidgetHome.data.content = {};
               console.log(">>>>>", WidgetHome.data);
@@ -27,10 +31,17 @@
         };
 
         WidgetHome.onUpdateCallback = function (event) {
+
           if (event && event.tag === TAG_NAMES.GOOGLE_APPS_SHEETS_DATA) {
             WidgetHome.data = event.data;
-            if(WidgetHome.data && WidgetHome.data.content && WidgetHome.data.content.url)
-            WidgetHome.data.content.url = WidgetHome.data.content.url.replace("/edit", "/htmlview");
+            console.log("+++", WidgetHome.data)
+
+            if(WidgetHome.data && WidgetHome.data.content && WidgetHome.data.content.url) {
+              if (WidgetHome.data.content.mode == 'EDITABLE')
+                WidgetHome.data.content.url = WidgetHome.data.content.url.replace("/htmlview", "/edit");
+              else
+                WidgetHome.data.content.url = WidgetHome.data.content.url.replace("/edit", "/htmlview");
+            }
             if (WidgetHome.data&&!WidgetHome.data.design)
               WidgetHome.data.design = {};
             if (WidgetHome.data&&!WidgetHome.data.content)

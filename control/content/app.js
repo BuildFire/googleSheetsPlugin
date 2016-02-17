@@ -2,23 +2,32 @@
 
 (function (angular, window) {
   angular.module('googleAppsSheetsPluginContent', ['ui.bootstrap'])
-    .controller('ContentHomeCtrl', ['DataStore', 'TAG_NAMES', 'STATUS_CODE', '$timeout', function (DataStore, TAG_NAMES, STATUS_CODE, $timeout) {
+    .controller('ContentHomeCtrl', ['DataStore', 'TAG_NAMES', 'STATUS_CODE', '$timeout','$scope', function (DataStore, TAG_NAMES, STATUS_CODE, $timeout, $scope) {
       var ContentHome = this;
       ContentHome.data = {
         content: {
           url: null
         }
       };
+        ContentHome.modeType={
+          PREVIEW:"PREVIEW",
+          EDITABLE : "EDITABLE"
+        }
       ContentHome.isUrlValidated = null;
       ContentHome.googleSheetUrl = null;
       /*Init method call, it will bring all the pre saved data*/
       ContentHome.init = function () {
-        ContentHome.success = function (result) {
+         ContentHome.success = function (result) {
           console.info('init success result:', result);
           if (result) {
             ContentHome.data = result.data;
             if (!ContentHome.data.content)
               ContentHome.data.content = {};
+            if(!ContentHome.data.content.mode) {
+              ContentHome.mode = ContentHome.modeType.PREVIEW;
+            }else{
+              ContentHome.mode = ContentHome.data.content.mode;
+            }
             ContentHome.googleSheetUrl = ContentHome.data.content.url;
           }
         };
@@ -34,17 +43,17 @@
       };
       ContentHome.init();
 
-
+        ContentHome.changeMode =  function(){
+         ContentHome.data.content.mode =  ContentHome.mode;
+          ContentHome.saveData(JSON.parse(angular.toJson(ContentHome.data)), TAG_NAMES.GOOGLE_APPS_SHEETS_DATA);
+        }
         ContentHome.valiadte= function (url) {
           var regExp = /^https?:\/\/.+\/spreadsheets\/.+/;
           return regExp.test(url);
         }
 
       ContentHome.validateUrl = function () {
-        console.log("aaaaaaaaaaaaaaaa",ContentHome.valiadte(ContentHome.googleSheetUrl))
-        //  var result =
-     //    if (ContentHome.googleSheetUrl.match("https://docs.google.com/spreadsheets")) {
-        if (ContentHome.valiadte(ContentHome.googleSheetUrl)) {
+         if (ContentHome.valiadte(ContentHome.googleSheetUrl)) {
             ContentHome.isUrlValidated = true;
             ContentHome.data.content.url = ContentHome.googleSheetUrl;
             ContentHome.saveData(JSON.parse(angular.toJson(ContentHome.data)), TAG_NAMES.GOOGLE_APPS_SHEETS_DATA);
