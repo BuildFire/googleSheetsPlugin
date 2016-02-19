@@ -80,7 +80,9 @@
         };
         DataStore.save(newObj, tag).then(ContentHome.success, ContentHome.error);
       };
-
+        ContentHome.gotToSupport = function(){
+           window.open('https://support.google.com/drive/answer/2494822?hl=en', '_blank');
+        };
       /*
        * Method to clear GoogleSheet feed url
        * */
