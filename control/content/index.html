@@ -69,13 +69,15 @@
       <div class="item clearfix row">
         <div class="col-md-9 pull-right">
           <p>Note 1: Please make sure you are logged in through your Google
-            account and have access to the linked file to properly view it. You can click  <a href="https://accounts.google.com">here</a> to sign in.</p>
+            account and have access to the linked file to properly view it. You can click  <a ng-click="ContentHome.gotToView()">here</a> to sign in.</p>
           <p>Note 2: If you want to send a file or folder to someone so that they
             can
             view, edit, or comment on it, you can share it with them directly in
             Google Drive, Docs, Sheets, or Slides, or through a link or email
-            attachment. <a ng-click="ContentHome.gotToSupport()">Here</a> is a
+            attachment. <a ng-click="ContentHome.gotToSupport()">here</a> is a
             link on how to do it.</p>
+          <p>Note 3: To view Google Sheets on your phone, please make sure that your spreadsheet is published. <a ng-click="ContentHome.gotToPublish()">Here</a> is a link on how to do it.
+            </p>
         </div>
      </div>
 </div>
