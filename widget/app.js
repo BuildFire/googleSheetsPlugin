@@ -11,17 +11,28 @@
          */
         WidgetHome.init = function () {
           WidgetHome.success = function (result) {
+            if (result.data && result.id) {
               WidgetHome.data = result.data;
-            if(WidgetHome.data && WidgetHome.data.content && WidgetHome.data.content.url) {
-              if (WidgetHome.data.content.mode == 'EDITABLE')
-                WidgetHome.data.content.url = WidgetHome.data.content.url.replace("/htmlview", "/edit");
-              else
-                WidgetHome.data.content.url = WidgetHome.data.content.url.replace("/edit", "/htmlview");
-            }
-            if (!WidgetHome.data.content)
+              if (WidgetHome.data && WidgetHome.data.content && WidgetHome.data.content.url) {
+                if (WidgetHome.data.content.mode == 'EDITABLE')
+                  WidgetHome.data.content.url = WidgetHome.data.content.url.replace("/htmlview", "/edit");
+                else
+                  WidgetHome.data.content.url = WidgetHome.data.content.url.replace("/edit", "/htmlview");
+              }
+              if (!WidgetHome.data.content)
                 WidgetHome.data.content = {};
               console.log(">>>>>", WidgetHome.data);
             }
+
+          else
+          {
+            WidgetHome.data = {
+              content: {}
+            };
+            var dummyData = {url: "https://docs.google.com/spreadsheets/d/1DRVGSGJh5s1w2giLbizZW6t6OT1Ea-YIewzX9D4meJ4/pubhtml#gid=0"};
+            WidgetHome.data.content.url = dummyData.url;
+          }
+        }
           WidgetHome.error = function (err) {
               if (err && err.code !== STATUS_CODE.NOT_FOUND) {
                 console.error('Error while getting data', err);

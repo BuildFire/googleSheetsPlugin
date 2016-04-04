@@ -19,7 +19,7 @@
       ContentHome.init = function () {
          ContentHome.success = function (result) {
           console.info('init success result:', result);
-          if (result) {
+          if (result.data && result.id) {
             ContentHome.data = result.data;
             if (!ContentHome.data.content)
               ContentHome.data.content = {};
@@ -29,6 +29,11 @@
               ContentHome.mode = ContentHome.data.content.mode;
             }
             ContentHome.googleSheetUrl = ContentHome.data.content.url;
+          }
+          else {
+            var dummyData = {url: "https://docs.google.com/spreadsheets/d/1DRVGSGJh5s1w2giLbizZW6t6OT1Ea-YIewzX9D4meJ4/pubhtml#gid=0"};
+            ContentHome.googleSheetUrl = ContentHome.data.content.url = dummyData.url;
+            ContentHome.mode = ContentHome.modeType.PREVIEW;
           }
         };
         ContentHome.error = function (err) {
