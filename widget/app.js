@@ -1,11 +1,10 @@
 'use strict';
 
-(function (angular) {
+(function (angular,buildfire) {
   angular.module('googleAppsSheetsPluginWidget', ['ui.bootstrap'])
     .controller('WidgetHomeCtrl', ['$scope', 'Buildfire', 'DataStore', 'TAG_NAMES', 'STATUS_CODE',
       function ($scope, Buildfire, DataStore, TAG_NAMES, STATUS_CODE) {
         var WidgetHome = this;
-        buildfire.datastore.disableRefresh();
         /*
          * Fetch user's data from datastore
          */
@@ -32,7 +31,7 @@
             var dummyData = {url: "https://docs.google.com/spreadsheets/d/1DRVGSGJh5s1w2giLbizZW6t6OT1Ea-YIewzX9D4meJ4/pubhtml#gid=0"};
             WidgetHome.data.content.url = dummyData.url;
           }
-        }
+        };
           WidgetHome.error = function (err) {
               if (err && err.code !== STATUS_CODE.NOT_FOUND) {
                 console.error('Error while getting data', err);
@@ -62,6 +61,20 @@
         
         DataStore.onUpdate().then(null, null, WidgetHome.onUpdateCallback);
 
+        //Refresh web page on pulling the tile bar
+
+        buildfire.datastore.onRefresh(function () {
+          var iFrame = document.getElementById("sheetFrame"),
+            url = iFrame.src,
+            hashIndex = url.indexOf("#");
+
+          if(hashIndex !== -1) {
+            url = url.substr(0, hashIndex) + "?v=test" + url.substr(hashIndex);
+          }
+          iFrame.src = url + "";
+        });
+
+
         WidgetHome.init();
 
       }])
@@ -71,4 +84,4 @@
         return $sce.trustAsResourceUrl(url);
       }
     }]);
-})(window.angular);
+})(window.angular, window.buildfire);
