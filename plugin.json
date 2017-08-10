@@ -3,7 +3,7 @@
   "pluginName": "Google Sheets",
   "pluginDescription": "Google Sheets makes your data pop with colorful charts and graphs. Built-in formulas, pivot tables and conditional formatting options save time and simplify common spreadsheet tasks.Related Topics:Google Plus, Students",
   "supportEmail": "support@buildfire.com",
-  "supportSite":"http://support.appdocumentation.com/knowledge-base/google-sheets-plugin-tutorial/" ,
+  "supportSite":"http://learn.appdocumentation.com/plugin-tutorials/google-sheets-plugin-tutorial" ,
   "control": {
     "content": {
       "enabled": true
