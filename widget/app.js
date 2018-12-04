@@ -81,7 +81,7 @@
     .filter('returnUrl', ['$sce', function ($sce) {
       return function (url) {
 
-        return $sce.trustAsResourceUrl(url);
+        return $sce.trustAsResourceUrl(url + '&chrome=false');
       }
     }]);
 })(window.angular, window.buildfire);
