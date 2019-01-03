@@ -10,10 +10,7 @@
           mode: 'PREVIEW'
         }
       };
-        // ContentHome.modeType={
-        //   PREVIEW:"PREVIEW",
-        //   EDITABLE : "EDITABLE"
-        // }
+      
       ContentHome.isUrlValidated = null;
       ContentHome.googleSheetUrl = null;
       /*Init method call, it will bring all the pre saved data*/
