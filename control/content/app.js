@@ -6,13 +6,11 @@
       var ContentHome = this;
       ContentHome.data = {
         content: {
-          url: null
+          url: null,
+          mode: 'PREVIEW'
         }
       };
-        ContentHome.modeType={
-          PREVIEW:"PREVIEW",
-          EDITABLE : "EDITABLE"
-        }
+      
       ContentHome.isUrlValidated = null;
       ContentHome.googleSheetUrl = null;
       /*Init method call, it will bring all the pre saved data*/
@@ -23,17 +21,12 @@
             ContentHome.data = result.data;
             if (!ContentHome.data.content)
               ContentHome.data.content = {};
-            if(!ContentHome.data.content.mode) {
-              ContentHome.mode = ContentHome.modeType.PREVIEW;
-            }else{
-              ContentHome.mode = ContentHome.data.content.mode;
-            }
             ContentHome.googleSheetUrl = ContentHome.data.content.url;
           }
           else {
             var dummyData = {url: "https://docs.google.com/spreadsheets/d/1DRVGSGJh5s1w2giLbizZW6t6OT1Ea-YIewzX9D4meJ4/pubhtml#gid=0"};
             ContentHome.googleSheetUrl = ContentHome.data.content.url = dummyData.url;
-            ContentHome.mode = ContentHome.modeType.PREVIEW;
+            ContentHome.mode = 'PREVIEW';
           }
         };
         ContentHome.error = function (err) {
@@ -48,25 +41,21 @@
       };
       ContentHome.init();
 
-        ContentHome.changeMode =  function(){
-         ContentHome.data.content.mode =  ContentHome.mode;
-          ContentHome.saveData(JSON.parse(angular.toJson(ContentHome.data)), TAG_NAMES.GOOGLE_APPS_SHEETS_DATA);
-        }
-        ContentHome.valiadte= function (url) {
-          var regExp = /^https?:\/\/.+\/spreadsheets\/.+/;
-          return regExp.test(url);
-        }
+      ContentHome.valiadte= function (url) {
+        var regExp = /^https?:\/\/.+\/spreadsheets\/.+/;
+        return regExp.test(url);
+      }
 
       ContentHome.validateUrl = function () {
-         if (ContentHome.valiadte(ContentHome.googleSheetUrl)) {
-            ContentHome.isUrlValidated = true;
-            ContentHome.data.content.url = ContentHome.googleSheetUrl;
-            ContentHome.saveData(JSON.parse(angular.toJson(ContentHome.data)), TAG_NAMES.GOOGLE_APPS_SHEETS_DATA);
-          }
+        if (ContentHome.valiadte(ContentHome.googleSheetUrl)) {
+          ContentHome.isUrlValidated = true;
+          ContentHome.data.content.url = ContentHome.googleSheetUrl;
+          ContentHome.saveData(JSON.parse(angular.toJson(ContentHome.data)), TAG_NAMES.GOOGLE_APPS_SHEETS_DATA);
+        }
         else {
           ContentHome.isUrlValidated = false;
         }
-          console.log("?????????error")
+        console.log("?????????error")
         $timeout(function () {
           ContentHome.isUrlValidated = null;
         }, 3000);
@@ -85,15 +74,15 @@
         };
         DataStore.save(newObj, tag).then(ContentHome.success, ContentHome.error);
       };
-        ContentHome.gotToView = function(){
-          window.open('https://accounts.google.com', '_blank');
-        };
-        ContentHome.gotToSupport = function(){
-          window.open('https://support.google.com/drive/answer/2494822?hl=en', '_blank');
-        };
-        ContentHome.gotToPublish = function(){
-          window.open('https://support.google.com/docs/answer/37579?hl=en', '_blank');
-        };
+      ContentHome.gotToView = function(){
+        window.open('https://accounts.google.com', '_blank');
+      };
+      ContentHome.gotToSupport = function(){
+        window.open('https://support.google.com/drive/answer/2494822?hl=en', '_blank');
+      };
+      ContentHome.gotToPublish = function(){
+        window.open('https://support.google.com/docs/answer/37579?hl=en', '_blank');
+      };
       /*
        * Method to clear GoogleSheet feed url
        * */

@@ -17,25 +17,6 @@
 </head>
 <body id="webviewApp" ng-cloak>
 <div ng-controller="ContentHomeCtrl as ContentHome">
-  <div class="item clearfix row">
-    <div class="labels col-md-3 padding-right-zero pull-left">
-      <span>Choose Mode</span>
-    </div>
-    <div class="main pull-right col-md-9 padding-left-zero row">
-      <div class="radio radio-primary radio-inline">
-        <input id="preview" type="radio" ng-model="ContentHome.mode"
-               ng-value="ContentHome.modeType.PREVIEW"
-               name="mode" ng-change="ContentHome.changeMode()">
-        <label for="preview">Preview Mode</label>
-      </div>
-      <div class="radio radio-primary radio-inline">
-        <input id="edit" type="radio" ng-model="ContentHome.mode"
-               ng-value="ContentHome.modeType.EDITABLE"
-               name="mode" ng-change="ContentHome.changeMode()">
-        <label for="edit">Editable Mode</label>
-      </div>
-    </div>
-  </div>
   <br>
   <div class="item clearfix row margin-bottom-fifteen">
     <div class="labels col-md-3 padding-right-zero pull-left">
