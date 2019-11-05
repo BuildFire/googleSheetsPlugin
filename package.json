@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "./node_modules/.bin/bower install",
     "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS",
-    "build": "cd .. && rm -rf googleSheetsPlugin.zip && zip -r googleSheetsPlugin.zip googleSheetsPlugin/"
+    "build": "cd .. && rm -rf googleSheetsPlugin.zip && zip -r googleSheetsPlugin.zip googleSheetsPlugin/ -x \\*node_modules\\* \\*.git\\* \\*test\\*"
   },
   "license": "ISC",
   "dependencies": {
