@@ -1,7 +1,7 @@
 {
   "author": "BuildFire",
   "pluginName": "Google Sheets",
-  "pluginDescription": "Google Sheets makes your data pop with colorful charts and graphs. Built-in formulas, pivot tables and conditional formatting options save time and simplify common spreadsheet tasks.Related Topics:Google Plus, Students",
+  "pluginDescription": "Embed Google Sheets into your mobile app.",
   "supportEmail": "support@buildfire.com",
   "supportSite":"http://learn.appdocumentation.com/plugin-tutorials/google-sheets-plugin-tutorial" ,
   "control": {
@@ -18,5 +18,31 @@
   "widget": {
   },
   "features": [],
-  "languages": ["en"]
+  "languages": ["en"],
+  "media": [
+    {
+      "type": "image-resource",
+      "path": "1-Plugin.png"
+    },
+    {
+      "type": "image-resource",
+      "path": "2-Benefits.png"
+    },
+    {
+      "type": "image-resource",
+      "path": "3-Use-Cases.png"
+    },
+    {
+      "type": "image-resource",
+      "path": "4-Content-Tab.png"
+    },
+    {
+      "type": "image-resource",
+      "path": "5-Analytics-Tab.png"
+    },
+    {
+      "type": "youtube-video",
+      "path": "https://www.youtube.com/watch?v=maZVM5KZDwU"
+    }
+  ]
 }
