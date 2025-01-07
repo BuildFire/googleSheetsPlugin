@@ -1,7 +1,7 @@
 {
   "author": "Buildfire",
   "pluginName": "Google Sheets",
-  "pluginDescription": "Embed Google Sheets into your mobile app.",
+  "pluginDescription": "Embed Google Sheets into your mobile app, allowing users to view and interact with live data directly within the app for seamless integration and updates.",
   "supportEmail": "support@buildfire.com",
   "supportSite":"http://learn.appdocumentation.com/plugin-tutorials/google-sheets-plugin-tutorial" ,
   "control": {
