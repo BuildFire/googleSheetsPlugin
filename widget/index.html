@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="googleAppsSheetsPluginWidget">
+
 <head lang="en">
   <meta charset="UTF-8">
   <title>Widget</title>
@@ -15,13 +16,18 @@
   <script src="enums.js"></script>
   <script src="app.services.js"></script>
 </head>
+<style>
+  body {
+    padding-top: var(--bf-safe-area-inset-top) !important;
+  }
+</style>
+
 <body>
-<div class="content"
-     style="-webkit-overflow-scrolling: touch !important;overflow: auto;height: 100%;"
-     ng-controller="WidgetHomeCtrl as WidgetHome">
-  <iframe id="sheetFrame" ng-src="{{WidgetHome.data.content.url | returnUrl}}"
-          ng-if="WidgetHome.data.content.url"
-          style="height: 100%;position: relative" ></iframe>
-</div>
+  <div class="content" style="-webkit-overflow-scrolling: touch !important;overflow: auto;height: 100%;"
+    ng-controller="WidgetHomeCtrl as WidgetHome">
+    <iframe id="sheetFrame" ng-src="{{WidgetHome.data.content.url | returnUrl}}" ng-if="WidgetHome.data.content.url"
+      style="height: 100%;position: relative"></iframe>
+  </div>
 </body>
+
 </html>
